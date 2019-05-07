@@ -180,3 +180,33 @@ void kepTuTu(int pos)
     delay(SERVO_DELAY);
   }
 }
+
+/*----------------------------ELBOW----------------------------------------*/
+void nangLenTuTu(int pos)
+{
+  for (int i = elbowServo.read(); i <= pos; i++)
+  {
+    elbowServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+void nangLen1Buoc()
+{
+  elbowServo.write(elbowServo.read() + 1);
+  delay(SERVO_DELAY);
+}
+
+void haXuongTuTu(int pos)
+{
+  for (int i = elbowServo.read(); i >= pos; i--)
+  {
+    elbowServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+void haXuong1Buoc()
+{
+  elbowServo.write(elbowServo.read() - 1);
+  delay(SERVO_DELAY);
+}
+
