@@ -243,3 +243,37 @@ void thuVaoTuTu(int pos)
   }
 }
 
+
+/*--------------------------------BASE--------------------------------------*/
+
+
+void quayTrai1Buoc()
+{
+  baseServo.write(baseServo.read() + 1);
+  delay(SERVO_DELAY);
+}
+
+
+void quayPhai1Buoc()
+{
+  baseServo.write(baseServo.read() - 1);
+  delay(SERVO_DELAY);
+}
+
+void quayTraiTuTu(int pos)
+{
+  for (int i = baseServo.read(); i <= pos; i++)
+  {
+    baseServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+void quayPhaiTuTu(int pos)
+{
+  for (int i = baseServo.read(); i >= pos; i--)
+  {
+    baseServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+/*--------------------------------------------------------------------------*/
