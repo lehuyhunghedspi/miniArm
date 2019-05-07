@@ -210,3 +210,36 @@ void haXuong1Buoc()
   delay(SERVO_DELAY);
 }
 
+
+/*----------------------------SHOULDER---------------------------------------------*/
+
+void vuonRa1Buoc()
+{
+  shoulderServo.write(shoulderServo.read() + 1);
+  delay(SERVO_DELAY);
+}
+void vuonRaTuTu(int pos)
+{
+  for (int i = shoulderServo.read(); i <= pos; i++)
+  {
+    shoulderServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+
+
+void thuVao1Buoc()
+{
+  shoulderServo.write(shoulderServo.read() - 1);
+  delay(SERVO_DELAY);
+}
+
+void thuVaoTuTu(int pos)
+{
+  for (int i = shoulderServo.read(); i >= pos; i--)
+  {
+    shoulderServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+
