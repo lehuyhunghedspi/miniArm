@@ -147,3 +147,36 @@ void servoPosition (byte servo1, byte servo2, byte servo3, byte servo4)
   shoulderServo.write(servo3);
   gripperServo.write(servo4);
 }
+
+/*------------------------------GRIPPER---------------------------------------*/
+void kep1Buoc()
+{
+  gripperServo.write(gripperServo.read() - 1);
+  delay(SERVO_DELAY);
+}
+
+
+void moRa1Buoc()
+{
+  gripperServo.write(gripperServo.read() + 1);
+  delay(SERVO_DELAY);
+}
+
+
+void moRaTuTu(int pos)
+{
+  for (int i = gripperServo.read(); i <= pos; i++)
+  {
+    gripperServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+
+void kepTuTu(int pos)
+{
+  for (int i = gripperServo.read(); i >= pos; i--)
+  {
+    gripperServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
