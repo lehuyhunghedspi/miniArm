@@ -328,3 +328,36 @@ void runPos(int basePos,int elbowPos,int shoulderPos,int gripperPos){
     
 }
 
+/*--------------------------------BASE------------------------------*/
+
+void turnLeftOneStep()
+{
+  baseServo.write(baseServo.read() + DRE_STEP);
+  delay(SERVO_DELAY);
+}
+
+
+void turnRightOneStep()
+{
+  baseServo.write(baseServo.read() - DRE_STEP);
+  delay(SERVO_DELAY);
+}
+
+
+void turnLeftSlowly(int pos)
+{
+  for (int i = baseServo.read(); i <= pos; i++)
+  {
+    baseServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+
+void turnRightSlowly(int pos)
+{
+  for (int i = baseServo.read(); i >= pos; i--)
+  {
+    baseServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
