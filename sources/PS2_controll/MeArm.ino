@@ -281,4 +281,13 @@ void initNewScripts(){
   arr_size = 0;
 }
 
+void addScriptToArr(byte basePos,byte elbowPos,byte shoulderPos,byte gripperPos){
+  if(arr_size < MAX_SIZE_ARR){
+    scripts[arr_size][0] = basePos;
+    scripts[arr_size][1] = elbowPos;
+    scripts[arr_size][2] = shoulderPos;
+    scripts[arr_size][3] = gripperPos;
+    arr_size++;
+  }
+}
 
