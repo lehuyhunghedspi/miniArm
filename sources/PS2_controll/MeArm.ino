@@ -393,3 +393,33 @@ void downSlowly(int pos)
   }
 }
 
+/*----------------------------SHOULDER---------------------------------------------*/
+void longerOneStep()
+{
+  shoulderServo.write(shoulderServo.read() + DRE_STEP);
+  delay(SERVO_DELAY);
+}
+
+void shorterOneStep()
+{
+  shoulderServo.write(shoulderServo.read() - DRE_STEP);
+  delay(SERVO_DELAY);
+}
+
+void longerSlowly(int pos)
+{
+  for (int i = shoulderServo.read(); i <= pos; i++)
+  {
+    shoulderServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+
+void shorterSlowly(int pos)
+{
+  for (int i = shoulderServo.read(); i >= pos; i--)
+  {
+    shoulderServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
