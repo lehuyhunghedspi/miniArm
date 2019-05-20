@@ -361,3 +361,35 @@ void turnRightSlowly(int pos)
     delay(SERVO_DELAY);
   }
 }
+
+/*----------------------------ELBOW----------------------------------------*/
+
+void upOneStep()
+{
+  elbowServo.write(elbowServo.read() + DRE_STEP);
+  delay(SERVO_DELAY);
+}
+void downOneStep()
+{
+  elbowServo.write(elbowServo.read() - DRE_STEP);
+  delay(SERVO_DELAY);
+}
+
+void upSlowly(int pos)
+{
+  for (int i = elbowServo.read(); i <= pos; i++)
+  {
+    elbowServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+
+void downSlowly(int pos)
+{
+  for (int i = elbowServo.read(); i >= pos; i--)
+  {
+    elbowServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+
