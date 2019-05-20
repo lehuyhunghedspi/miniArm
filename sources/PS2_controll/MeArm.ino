@@ -423,3 +423,32 @@ void shorterSlowly(int pos)
     delay(SERVO_DELAY);
   }
 }
+/*------------------------------GRIPPER---------------------------------------*/
+
+void openGripper(){
+  gripperServo.write(150);
+  delay(SERVO_DELAY);
+}
+
+void closeGripper(){
+  gripperServo.write(90);
+   delay(SERVO_DELAY);
+}
+
+void openGripperSlowly(int pos)
+{
+  for (int i = gripperServo.read(); i <= pos; i++)
+  {
+    gripperServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
+
+void closeGripperSlowly(int pos)
+{
+  for (int i = gripperServo.read(); i >= pos; i--)
+  {
+    gripperServo.write(i);
+    delay(SERVO_DELAY);
+  }
+}
