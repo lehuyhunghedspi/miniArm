@@ -291,3 +291,40 @@ void addScriptToArr(byte basePos,byte elbowPos,byte shoulderPos,byte gripperPos)
   }
 }
 
+void runScripts(){
+  for(int i = 0; i < arr_size; i++){
+    runPos(scripts[i][0],
+           scripts[i][1],
+           scripts[i][2],
+           scripts[i][3]);       
+  }
+}
+
+
+void runPos(int basePos,int elbowPos,int shoulderPos,int gripperPos){
+  //BASE 
+  if(baseServo.read()> basePos){
+    turnRightSlowly(basePos);
+  }else
+    turnLeftSlowly(basePos);
+  
+  //ELBOW
+  if(elbowServo.read() > elbowPos){
+     downSlowly(elbowPos);
+  }else
+     upSlowly(elbowPos);
+  
+  //SHOULDER
+  if(shoulderServo.read() > shoulderPos){
+     shorterSlowly(shoulderPos);
+  }else
+     longerSlowly(shoulderPos);
+  //GRIPPER
+  
+  if(gripperServo.read() > gripperPos){
+    closeGripperSlowly(gripperPos);
+  }else
+    openGripperSlowly(gripperPos);
+    
+}
+
