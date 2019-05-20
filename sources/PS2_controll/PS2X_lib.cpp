@@ -52,5 +52,41 @@ byte PS2X::Analog(byte button) {
    return PS2data[button];
 }
 
+/****************************************************************************************/
+
+
+inline bool PS2X::DAT_CHK(void) {
+  return (*_dat_ireg & _dat_mask) ? true : false;
+}
+
+#else
+// On pic32, use the set/clr registers to make them atomic...
+inline void  PS2X::CLK_SET(void) {
+  *_clk_lport_set |= _clk_mask;
+}
+
+inline void  PS2X::CLK_CLR(void) {
+  *_clk_lport_clr |= _clk_mask;
+}
+
+inline void  PS2X::CMD_SET(void) {
+  *_cmd_lport_set |= _cmd_mask;
+}
+
+inline void  PS2X::CMD_CLR(void) {
+  *_cmd_lport_clr |= _cmd_mask;
+}
+
+inline void  PS2X::ATT_SET(void) {
+  *_att_lport_set |= _att_mask;
+}
+
+inline void PS2X::ATT_CLR(void) {
+  *_att_lport_clr |= _att_mask;
+}
+
+inline bool PS2X::DAT_CHK(void) {
+  return (*_dat_lport & _dat_mask) ? true : false;
+}
 
 #endif
