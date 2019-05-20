@@ -274,3 +274,11 @@ void loop() {
   }
   delay(50);
 }
+
+/*--------------------------Save/Run script-------------------------*/
+
+void initNewScripts(){
+  arr_size = 0;
+}
+
+
